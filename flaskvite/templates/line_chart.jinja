@@ -1,0 +1,14 @@
+{% extends "base.jinja" %}
+
+{% block head %}
+    {{ include_module_style("line_chart")|safe }}
+{% endblock %}
+
+{% block content %}
+    <h1>{% block title %}Line Chart{% endblock %}</h1>
+    <div style="width: 600px; height: 400px" id="chart"></div>
+{% endblock %}
+
+{% block foot %}
+    <script type="module" src="{{ get_module_path('line_chart') }}"></script>
+{% endblock %}

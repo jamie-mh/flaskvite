@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block head %}{% endblock %}
+
+    {{ include_module_style("main") }}
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/bar-chart">Bar Chart</a></li>
+        <li><a href="/line-chart">Line Chart</a></li>
+    </ul>
+</nav>
+
+{% block content %}{% endblock %}
+
+<script type="module" src="{{ get_module_path('main') }}"></script>
+
+{% if config["VITE_DEV_SERVER"] is not none %}
+    <script type="module" src="{{ config['VITE_DEV_SERVER'] }}/@vite/client"></script>
+{% endif %}
+
+{% block foot %}{% endblock %}
+
+</body>
+</html>

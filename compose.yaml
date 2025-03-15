@@ -1,0 +1,9 @@
+services:
+  app:
+    image: ghcr.io/jamie-mh/flaskvite:latest
+    container_name: flaskvite
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    ports:
+      - "8004:8000"
